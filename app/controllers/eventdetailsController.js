@@ -1,7 +1,7 @@
 app.controller('eventdetailsController', function ($scope, $http, $routeParams) {
     
     $scope.id = $routeParams.id;
-    console.log
+   
 
 
             $scope.eventDetails = function () {
@@ -15,6 +15,21 @@ app.controller('eventdetailsController', function ($scope, $http, $routeParams) 
                         console.log("Unable to perform get request");
                     });
 
+            }
+
+            $scope.userInterested=function(){
+
+                var euser={
+                    eventId:$scope.id ,
+                    userId:1
+                }
+
+               $http.post('http://localhost:51047/api/event/PostEventUser', euser)
+                    .then(function successCallback() {
+                        alert("Success");
+                    }, function errorCallback() {
+                        alert("Failure");
+                    });
             }
 
         });
