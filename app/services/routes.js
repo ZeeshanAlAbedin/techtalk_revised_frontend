@@ -30,5 +30,9 @@ app.config(function($routeProvider){
         .when("/updateEvent", {
            templateUrl : "../views/updateEvent.html",
             controller : "updateeventController"
+        })
+        .when("/uploadppt", {
+           templateUrl : "../views/addPPT.html",
+            controller : "addpptController"
         });
 });

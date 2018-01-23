@@ -8,25 +8,23 @@
                             <th>Presenter Name</th>
                             <th>Event Date</th>
                             <th>"ID for Debug"</th>
-                            <th>Upload PPT</th>
                             <th>Update Event</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="row in rows">
-                            <td><input type="text" value="{{row.ename}}" id="jqEname"></td>
+                            <td><input type="text" placeholder="{{row.ename}}" ng-model="jqEname"></td>
                             <td>
                             <select  ng-model="selectedUserID" name="presenter">
                                 <option value="{{row.userid}}" ng-repeat="row in rows">{{row.userid}}</option>
                             </select>
                             </td>
-                            <td><input type="text" value="{{row.edate}}"
-                            id="jqEdate"></td>
+                            <td><input type="text" placeholder="{{row.edate}}"
+                            ng-model="jqEdate"></td>
                             <td>{{row.eventid}}</td>
-                            <td><input type="file"></td>
-                            <td><input type="button" value="Update" class="btn btn-sm" ng-click="updateEvent()"></td>
                             
-                            
+                            <td><input type="button" value="Update" class="btn btn-sm" ng-click="updateEvent(row.eventid)"></td>
+
                         </tr>
                     </tbody>
                 </table>

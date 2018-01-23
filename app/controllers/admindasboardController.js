@@ -22,6 +22,11 @@ app.controller('admindashboardController', function($scope, $http, $location){
         $location.path('/updateEvent');
     }
     
+    $scope.gotToaddpptEvent = function(){
+        console.log("Clicked");
+        $location.path('/uploadppt');
+    }
+    
     //Get all events
     $scope.getAllEvents = function(){
         

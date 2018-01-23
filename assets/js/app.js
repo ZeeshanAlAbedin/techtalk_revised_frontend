@@ -1,1 +1,1 @@
-var app = angular.module('techtalk', ['ngRoute']);
+var app = angular.module('techtalk', ['ngRoute', 'ui.calendar']);

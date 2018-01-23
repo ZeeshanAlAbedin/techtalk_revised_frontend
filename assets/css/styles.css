@@ -2,11 +2,12 @@ body {
     padding-top: 5rem;
 }
 
-
-.calendar-week-header, .grid-cell{
-    border: 1px solid black;
-    padding: 10px;
+#calendar {
+max-width: 900px;
+margin: 0 auto;
 }
+
+
 
 
 .starter-template {
