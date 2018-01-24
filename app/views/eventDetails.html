@@ -1,20 +1,14 @@
 <div class="container" ng-init="eventDetails()" >
     <div class="row">
         <div class="col-sm-9">
-          <table class="table table-bordered table-condensed table-striped">
-              <thead>
-                  <tr>
-                      <th>Event Name</th>
-                      <th>Event description</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr ng-repeat="resp in res">
-                      <td>{{resp.ename}}</td>
-                      <td>{{resp.edes}}</td>
-                  </tr>
-              </tbody>
-          </table>
+          
+          
+            <h2>Event Details</h2><hr><br>
+            
+          <label><h5>Event Name:</h5></label>
+            <label ng-repeat="resp in res">{{resp.ename}}</label><br></br>
+          <label><h5>Event Description:</h5></label>
+          <label ng-repeat="resp in res">{{resp.edes}}</label>
            
             
             </div>

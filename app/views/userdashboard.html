@@ -5,6 +5,17 @@
         <div class="col-md-9">
             <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
         </div>
+        
+        <div class="col-md-3">
+           <div  ng-show="SelectedEvent"  class="alert alert-success" style="margin-top:50px">
+              
+               <h3>{{SelectedEvent.title}}</h3>
+               <p>{{SelectedEvent.description}}</p>
+               <input type="button" value="Details" class="btn btn-primary" ng-click="pageChange(SelectedEvent.evid)">
+               
+           </div>
+            
+        </div>
     </div>
     
     

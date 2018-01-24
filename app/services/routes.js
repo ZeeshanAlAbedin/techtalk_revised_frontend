@@ -9,7 +9,7 @@ app.config(function($routeProvider){
         })
         .when("/adminDashboard", {
            templateUrl : "../views/admindashboard.html",
-            controller : "admindashboardController"
+            controller : "userdashboardController"
         })
         .when("/addUser", {
            templateUrl : "../views/addUser.html",

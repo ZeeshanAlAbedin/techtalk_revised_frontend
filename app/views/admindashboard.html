@@ -1,47 +1,30 @@
+<div class="wrapper" ng-init="getAllEvents()">
+    
+    <nav id="sidebar">
+       
+        
+        <ul class="list-unstyled components">
+    
+    
+    <li><a ng-click="gotToAddUser()">Add User</a></li>
+    <li><a ng-click="gotToAddEvent()">Add Event</a></li>
+    <li><a ng-click="gotToRemoveEvent()">Remove Event</a></li>
+    <li><a ng-click="gotToUpdateEvent()">Update Event</a></li>
+    <li><a ng-click="gotToaddpptEvent()">Add Event Presentation</a></li>
+    
+    
+</ul>
+        
+    </nav>
 
-<div class="container" ng-init="getAllEvents()">
-    <div class="row">
-        <div class="col-sm-9">
-            <table id="eventTable" class="table table-bordered table-condensed table-striped">
-                <thead>
-                    <tr>
-                        <th>Event Name</button>
-                        </th>
-                        <th>Event Description</th>
-                        <th>Event Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="row in rows">
-                        <td><button type="button" class="btn btn-info">{{row.ename}}</td>
-                            <td>{{row.edes}}</td>
-                            <td>{{row.edate}}</td>
-                            <td>{{row.userid}}</td>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-3">
-                <!-- Highlighted Events -->
-                <h2>Event Highlights</h2>
-                <ul>
-                    <li>Angular 4</li>
-                    <li>Node Js</li>
-                    <li>ElectronJS</li>
-                </ul>
 
-            </div>
-        </div>
+    <!-- Adding Calendar View -->
+    <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+
 </div>
 
 
-<div class="container">
-    <ul>
-       <li><input type="button" ng-click="gotToAddUser()" value="Add user"></li>
-       <li><input type="button" ng-click="gotToAddEvent()" value="Add Event"></li>
-       <li><input type="button" ng-click="gotToRemoveEvent()" value="RemoveEvent"></li>
-       <li><input type="button" ng-click="gotToUpdateEvent()" value="UpdateEvent"></li>
-        <li><input type="button" ng-click="gotToaddpptEvent()" value="addppt"></li>
-    </ul>
-</div>
+
+
+
+

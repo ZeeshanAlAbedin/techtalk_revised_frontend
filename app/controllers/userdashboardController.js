@@ -1,13 +1,14 @@
-app.controller('userdashboardController', ['$scope', '$http', 'uiCalendarConfig', function($scope, $http, $location, $rootScope, uiCalendarConfig){
+app.controller('userdashboardController', ['$scope', '$http', 'uiCalendarConfig', '$location', function($scope, $http, $rootScope, $location, uiCalendarConfig ){
     
     //Get all events
     
     
     $scope.pageChange = function(eventid){
+        console.log(eventid);
         $location.path("/eventDetails/"+eventid);   
     }
     
-    
+    var todaysDate = moment(new Date()).format('YYYY MM DD');
     //calendar calls
     
     $scope.SelectedEvent = null;
@@ -19,18 +20,8 @@ app.controller('userdashboardController', ['$scope', '$http', 'uiCalendarConfig'
     var y = date.getFullYear();
     
     
-    $scope.events = [
-        {
-            title:'nodeJS',
-            start: new Date(2018, 0, 23),
- 
-        },
-        {
-            title:'Machine Learning',
-            start: new Date(2018, 0, 30),
- 
-        }
-    ];
+    $scope.events = [];
+    
     $scope.eventSources = [$scope.events];
     
     //Load events from the server
@@ -39,11 +30,20 @@ app.controller('userdashboardController', ['$scope', '$http', 'uiCalendarConfig'
              $scope.rows = response.data;
                 
             console.log($scope.rows[0].ename); 
-         $scope.events.push({
-             title: $scope.rows[0].ename,
-             start: $scope.rows[0].edate
+        angular.forEach($scope.rows, function(value){
+           //console.log('title :' + value.ename); 
+           //console.log('start :' + value.edate); 
+            $scope.events.push({
+             
+                title : value.ename,
+                start : value.edate,
+                description : value.edes,
+                evid : value.eventid,
+                stick: true
+            
          })
-            }, function errorCallback(response) {
+        })
+       }, function errorCallback(response) {
                 console.log("Unable to perform get request");
             });
     
@@ -61,12 +61,40 @@ app.controller('userdashboardController', ['$scope', '$http', 'uiCalendarConfig'
             },
             eventClick: function(event){
                 $scope.SelectedEvent = event;
+                $scope.pageChange($scope.SelectedEvent.evid);
+                
             },
             eventAfterAllRender: function(){
                 
             }
         }
     }
+    
+    $scope.gotToAddUser = function(){
+        console.log("Clicked");
+        $location.path('/addUser');
+    }
+    
+    $scope.gotToAddEvent = function(){
+        console.log("Clicked");
+        $location.path('/addEvent');
+    }
+    
+    $scope.gotToRemoveEvent = function(){
+        console.log("Clicked");
+        $location.path('/removeEvent');
+    }
+    
+    $scope.gotToUpdateEvent = function(){
+        console.log("Clicked");
+        $location.path('/updateEvent');
+    }
+    
+    $scope.gotToaddpptEvent = function(){
+        console.log("Clicked");
+        $location.path('/uploadppt');
+    }
+    
     
     
 
